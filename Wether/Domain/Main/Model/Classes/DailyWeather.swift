@@ -17,7 +17,7 @@ class DailyWeather: DailyWeatherProtocol, Decodable {
     
     var precipIntensityMax: Double
     
-    var precipIntensityMaxTime: UInt64
+    var precipIntensityMaxTime: UInt64?
     
     var temperatureHigh: Double
     
@@ -61,9 +61,9 @@ class DailyWeather: DailyWeatherProtocol, Decodable {
     
     var icon: String
     
-    var temperature: Double
+    var temperature: Double?
     
-    var apparentTemperature: Double
+    var apparentTemperature: Double?
     
     var dewPoint: Double
     
@@ -190,7 +190,7 @@ class DailyWeather: DailyWeatherProtocol, Decodable {
         
         precipIntensityMax = try container.decodeIfPresent(Double.self, forKey: .precipIntensityMax)!
         
-        precipIntensityMaxTime = try container.decodeIfPresent(UInt64.self, forKey: .precipIntensityMaxTime)!
+        precipIntensityMaxTime = try container.decodeIfPresent(UInt64.self, forKey: .precipIntensityMaxTime)
         
         temperatureHigh = try container.decodeIfPresent(Double.self, forKey: .temperatureHigh)!
         
@@ -234,9 +234,9 @@ class DailyWeather: DailyWeatherProtocol, Decodable {
         
         icon = try container.decodeIfPresent(String.self, forKey: .icon)!
         
-        temperature = try container.decodeIfPresent(Double.self, forKey: .temperature)!
+        temperature = try container.decodeIfPresent(Double.self, forKey: .temperature)
         
-        apparentTemperature = try container.decodeIfPresent(Double.self, forKey: .apparentTemperature)!
+        apparentTemperature = try container.decodeIfPresent(Double.self, forKey: .apparentTemperature)
         
         dewPoint = try container.decodeIfPresent(Double.self, forKey: .dewPoint)!
         

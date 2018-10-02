@@ -13,9 +13,9 @@ class HourlyWeather: HourlyWeatherProtocol, Decodable {
     
     var icon: String
     
-    var temperature: Double
+    var temperature: Double?
     
-    var apparentTemperature: Double
+    var apparentTemperature: Double?
     
     var dewPoint: Double
     
@@ -94,9 +94,9 @@ class HourlyWeather: HourlyWeatherProtocol, Decodable {
         
         icon = try container.decodeIfPresent(String.self, forKey: .icon)!
         
-        temperature = try container.decodeIfPresent(Double.self, forKey: .temperature)!
+        temperature = try container.decodeIfPresent(Double.self, forKey: .temperature)
         
-        apparentTemperature = try container.decodeIfPresent(Double.self, forKey: .apparentTemperature)!
+        apparentTemperature = try container.decodeIfPresent(Double.self, forKey: .apparentTemperature)
         
         dewPoint = try container.decodeIfPresent(Double.self, forKey: .dewPoint)!
         

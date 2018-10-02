@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A41D3D9C2163855C00CD242C /* MinutelyWetherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3D9B2163855C00CD242C /* MinutelyWetherData.swift */; };
+		A41D3D9F216387EE00CD242C /* DailyWetherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3D9D216387EE00CD242C /* DailyWetherData.swift */; };
+		A41D3DA0216387EE00CD242C /* HourlyWetherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3D9E216387EE00CD242C /* HourlyWetherData.swift */; };
+		A41D3DA3216388A400CD242C /* MoyaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3DA2216388A400CD242C /* MoyaService.swift */; };
+		A41D3DA521638A1500CD242C /* String+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3DA421638A1500CD242C /* String+Encoding.swift */; };
+		A41D3DA721638B6900CD242C /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3DA621638B6900CD242C /* MoyaPlugin.swift */; };
+		A41D3DA921638E1100CD242C /* Optional+Unwraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3DA821638E1100CD242C /* Optional+Unwraping.swift */; };
 		A4C200DF21633DD100BCAA6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C200DE21633DD100BCAA6C /* AppDelegate.swift */; };
 		A4C200E121633DD100BCAA6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C200E021633DD100BCAA6C /* ViewController.swift */; };
 		A4C200E421633DD100BCAA6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C200E221633DD100BCAA6C /* Main.storyboard */; };
@@ -21,11 +28,21 @@
 		A4C2010921635C3000BCAA6C /* MinutelyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C2010821635C3000BCAA6C /* MinutelyWeather.swift */; };
 		A4C2010B21635DE500BCAA6C /* HourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C2010A21635DE500BCAA6C /* HourlyWeather.swift */; };
 		A4C2010D21635E8200BCAA6C /* DailyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C2010C21635E8200BCAA6C /* DailyWeather.swift */; };
+		A4C2011021636A1800BCAA6C /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C2010F21636A1800BCAA6C /* DataRepository.swift */; };
+		A4C20112216380F400BCAA6C /* WetherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C20111216380F400BCAA6C /* WetherData.swift */; };
+		A4C201142163841100BCAA6C /* SimpleTimelyWetherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C201132163841100BCAA6C /* SimpleTimelyWetherProtocol.swift */; };
 		AA34A0BB9EE425AD2B5D6F18 /* Pods_Wether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2657E9FEE897D5591A5D829C /* Pods_Wether.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2657E9FEE897D5591A5D829C /* Pods_Wether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41D3D9B2163855C00CD242C /* MinutelyWetherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutelyWetherData.swift; sourceTree = "<group>"; };
+		A41D3D9D216387EE00CD242C /* DailyWetherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyWetherData.swift; sourceTree = "<group>"; };
+		A41D3D9E216387EE00CD242C /* HourlyWetherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyWetherData.swift; sourceTree = "<group>"; };
+		A41D3DA2216388A400CD242C /* MoyaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaService.swift; sourceTree = "<group>"; };
+		A41D3DA421638A1500CD242C /* String+Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Encoding.swift"; sourceTree = "<group>"; };
+		A41D3DA621638B6900CD242C /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
+		A41D3DA821638E1100CD242C /* Optional+Unwraping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Unwraping.swift"; sourceTree = "<group>"; };
 		A4C200DB21633DD100BCAA6C /* Wether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C200DE21633DD100BCAA6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4C200E021633DD100BCAA6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +59,9 @@
 		A4C2010821635C3000BCAA6C /* MinutelyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutelyWeather.swift; sourceTree = "<group>"; };
 		A4C2010A21635DE500BCAA6C /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
 		A4C2010C21635E8200BCAA6C /* DailyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeather.swift; sourceTree = "<group>"; };
+		A4C2010F21636A1800BCAA6C /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
+		A4C20111216380F400BCAA6C /* WetherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherData.swift; sourceTree = "<group>"; };
+		A4C201132163841100BCAA6C /* SimpleTimelyWetherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTimelyWetherProtocol.swift; sourceTree = "<group>"; };
 		AABA725AD5677049FA334DDE /* Pods-Wether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wether/Pods-Wether.debug.xcconfig"; sourceTree = "<group>"; };
 		E4719B9B72674AF0790EB625 /* Pods-Wether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wether.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wether/Pods-Wether.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +93,15 @@
 				2657E9FEE897D5591A5D829C /* Pods_Wether.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A41D3DA12163888F00CD242C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A41D3DA2216388A400CD242C /* MoyaService.swift */,
+				A41D3DA621638B6900CD242C /* MoyaPlugin.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		A4C200D221633DD100BCAA6C = {
@@ -115,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				A4C200F32163439800BCAA6C /* JSONDecoder+MultipleLevels.swift */,
+				A41D3DA421638A1500CD242C /* String+Encoding.swift */,
+				A41D3DA821638E1100CD242C /* Optional+Unwraping.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -178,6 +209,7 @@
 		A4C200FB216346AA00BCAA6C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A4C2010E2163692400BCAA6C /* Repository */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -188,6 +220,7 @@
 				A4C200FE21634E9E00BCAA6C /* SimpleWeatherProtocol.swift */,
 				A4C2010121634FC200BCAA6C /* HourlyWeatherProtocol.swift */,
 				A4C20103216351A000BCAA6C /* DailyWeatherProtocol.swift */,
+				A4C201132163841100BCAA6C /* SimpleTimelyWetherProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -195,12 +228,25 @@
 		A4C201052163561500BCAA6C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A41D3D9D216387EE00CD242C /* DailyWetherData.swift */,
+				A41D3D9E216387EE00CD242C /* HourlyWetherData.swift */,
+				A41D3D9B2163855C00CD242C /* MinutelyWetherData.swift */,
 				A4C201062163583600BCAA6C /* CurrentWeather.swift */,
 				A4C2010821635C3000BCAA6C /* MinutelyWeather.swift */,
 				A4C2010A21635DE500BCAA6C /* HourlyWeather.swift */,
 				A4C2010C21635E8200BCAA6C /* DailyWeather.swift */,
+				A4C20111216380F400BCAA6C /* WetherData.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		A4C2010E2163692400BCAA6C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				A41D3DA12163888F00CD242C /* Networking */,
+				A4C2010F21636A1800BCAA6C /* DataRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,16 +369,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A41D3DA521638A1500CD242C /* String+Encoding.swift in Sources */,
+				A41D3D9C2163855C00CD242C /* MinutelyWetherData.swift in Sources */,
+				A41D3DA3216388A400CD242C /* MoyaService.swift in Sources */,
 				A4C200FF21634E9E00BCAA6C /* SimpleWeatherProtocol.swift in Sources */,
 				A4C2010221634FC200BCAA6C /* HourlyWeatherProtocol.swift in Sources */,
 				A4C201072163583600BCAA6C /* CurrentWeather.swift in Sources */,
 				A4C2010B21635DE500BCAA6C /* HourlyWeather.swift in Sources */,
 				A4C200F42163439800BCAA6C /* JSONDecoder+MultipleLevels.swift in Sources */,
 				A4C2010D21635E8200BCAA6C /* DailyWeather.swift in Sources */,
+				A4C201142163841100BCAA6C /* SimpleTimelyWetherProtocol.swift in Sources */,
 				A4C200E121633DD100BCAA6C /* ViewController.swift in Sources */,
+				A41D3DA921638E1100CD242C /* Optional+Unwraping.swift in Sources */,
 				A4C20104216351A000BCAA6C /* DailyWeatherProtocol.swift in Sources */,
+				A41D3DA721638B6900CD242C /* MoyaPlugin.swift in Sources */,
+				A41D3DA0216387EE00CD242C /* HourlyWetherData.swift in Sources */,
 				A4C2010921635C3000BCAA6C /* MinutelyWeather.swift in Sources */,
+				A4C2011021636A1800BCAA6C /* DataRepository.swift in Sources */,
+				A41D3D9F216387EE00CD242C /* DailyWetherData.swift in Sources */,
 				A4C200DF21633DD100BCAA6C /* AppDelegate.swift in Sources */,
+				A4C20112216380F400BCAA6C /* WetherData.swift in Sources */,
 				A4C200FD2163497500BCAA6C /* Flags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

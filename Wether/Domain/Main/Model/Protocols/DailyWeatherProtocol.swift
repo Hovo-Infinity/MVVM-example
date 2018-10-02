@@ -13,7 +13,7 @@ protocol DailyWeatherProtocol: HourlyWeatherProtocol {
     var sunsetTime: UInt64 { get }
     var moonPhase: Double { get }
     var precipIntensityMax: Double { get }
-    var precipIntensityMaxTime : UInt64 { get }
+    var precipIntensityMaxTime : UInt64? { get }
     var temperatureHigh: Double { get }
     var temperatureHighTime: UInt64 { get }
     var temperatureLow: Double { get }

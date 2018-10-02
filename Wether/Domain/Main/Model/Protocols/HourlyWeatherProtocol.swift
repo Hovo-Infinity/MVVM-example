@@ -11,8 +11,8 @@ import Foundation
 protocol HourlyWeatherProtocol: SimpleWeatherProtocol {
     var summary: String { get }
     var icon: String { get }
-    var temperature: Double { get }
-    var apparentTemperature: Double { get }
+    var temperature: Double? { get }
+    var apparentTemperature: Double? { get }
     var dewPoint: Double { get }
     var humidity: Double { get }
     var pressure: Double { get }

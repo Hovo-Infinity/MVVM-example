@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol SimpleTimelyWetherProtocol {
+    associatedtype T
+    
+    var summary: String { get }
+    var icon: String { get }
+    var data: [T] { get }
+}

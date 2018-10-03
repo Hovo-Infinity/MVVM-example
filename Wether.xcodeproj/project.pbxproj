@@ -14,6 +14,16 @@
 		A41D3DA521638A1500CD242C /* String+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3DA421638A1500CD242C /* String+Encoding.swift */; };
 		A41D3DA721638B6900CD242C /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3DA621638B6900CD242C /* MoyaPlugin.swift */; };
 		A41D3DA921638E1100CD242C /* Optional+Unwraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D3DA821638E1100CD242C /* Optional+Unwraping.swift */; };
+		A47E72EB2164966E00303F19 /* MinutelyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72E92164966E00303F19 /* MinutelyCell.swift */; };
+		A47E72EC2164966E00303F19 /* MinutelyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47E72EA2164966E00303F19 /* MinutelyCell.xib */; };
+		A47E72EE216499F300303F19 /* UIView+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72ED216499F300303F19 /* UIView+Localization.swift */; };
+		A47E72F021649A5700303F19 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72EF21649A5700303F19 /* LanguageManager.swift */; };
+		A47E72F321649FCC00303F19 /* TableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72F221649FCC00303F19 /* TableViewCell+ReuseIdentifier.swift */; };
+		A47E72F62164AC0500303F19 /* MinutelyCellListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72F52164AC0500303F19 /* MinutelyCellListViewModel.swift */; };
+		A47E72F92164B25600303F19 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72F82164B25600303F19 /* BaseVC.swift */; };
+		A47E72FB2164B7F900303F19 /* MinutelyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72FA2164B7F900303F19 /* MinutelyCellViewModel.swift */; };
+		A47E72FD2164D0E100303F19 /* UIActivityIndicatorView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72FC2164D0E100303F19 /* UIActivityIndicatorView+Loading.swift */; };
+		A47E72FF2164E4F800303F19 /* MinutelyDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72FE2164E4F800303F19 /* MinutelyDataRepository.swift */; };
 		A4C200DF21633DD100BCAA6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C200DE21633DD100BCAA6C /* AppDelegate.swift */; };
 		A4C200E121633DD100BCAA6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C200E021633DD100BCAA6C /* ViewController.swift */; };
 		A4C200E421633DD100BCAA6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C200E221633DD100BCAA6C /* Main.storyboard */; };
@@ -43,6 +53,16 @@
 		A41D3DA421638A1500CD242C /* String+Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Encoding.swift"; sourceTree = "<group>"; };
 		A41D3DA621638B6900CD242C /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
 		A41D3DA821638E1100CD242C /* Optional+Unwraping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Unwraping.swift"; sourceTree = "<group>"; };
+		A47E72E92164966E00303F19 /* MinutelyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutelyCell.swift; sourceTree = "<group>"; };
+		A47E72EA2164966E00303F19 /* MinutelyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MinutelyCell.xib; sourceTree = "<group>"; };
+		A47E72ED216499F300303F19 /* UIView+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Localization.swift"; sourceTree = "<group>"; };
+		A47E72EF21649A5700303F19 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		A47E72F221649FCC00303F19 /* TableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		A47E72F52164AC0500303F19 /* MinutelyCellListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutelyCellListViewModel.swift; sourceTree = "<group>"; };
+		A47E72F82164B25600303F19 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		A47E72FA2164B7F900303F19 /* MinutelyCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutelyCellViewModel.swift; sourceTree = "<group>"; };
+		A47E72FC2164D0E100303F19 /* UIActivityIndicatorView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+Loading.swift"; sourceTree = "<group>"; };
+		A47E72FE2164E4F800303F19 /* MinutelyDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutelyDataRepository.swift; sourceTree = "<group>"; };
 		A4C200DB21633DD100BCAA6C /* Wether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C200DE21633DD100BCAA6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4C200E021633DD100BCAA6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +124,41 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		A47E72E62164948F00303F19 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A47E72E92164966E00303F19 /* MinutelyCell.swift */,
+				A47E72EA2164966E00303F19 /* MinutelyCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A47E72F121649A5D00303F19 /* InApp Localization */ = {
+			isa = PBXGroup;
+			children = (
+				A47E72EF21649A5700303F19 /* LanguageManager.swift */,
+			);
+			path = "InApp Localization";
+			sourceTree = "<group>";
+		};
+		A47E72F42164AAEC00303F19 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A47E72F52164AC0500303F19 /* MinutelyCellListViewModel.swift */,
+				A47E72FA2164B7F900303F19 /* MinutelyCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A47E72F72164B24600303F19 /* Viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				A4C200E021633DD100BCAA6C /* ViewController.swift */,
+				A47E72F82164B25600303F19 /* BaseVC.swift */,
+			);
+			path = Viewcontrollers;
+			sourceTree = "<group>";
+		};
 		A4C200D221633DD100BCAA6C = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +201,9 @@
 				A4C200F32163439800BCAA6C /* JSONDecoder+MultipleLevels.swift */,
 				A41D3DA421638A1500CD242C /* String+Encoding.swift */,
 				A41D3DA821638E1100CD242C /* Optional+Unwraping.swift */,
+				A47E72ED216499F300303F19 /* UIView+Localization.swift */,
+				A47E72F221649FCC00303F19 /* TableViewCell+ReuseIdentifier.swift */,
+				A47E72FC2164D0E100303F19 /* UIActivityIndicatorView+Loading.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -162,6 +220,7 @@
 		A4C200F62163440D00BCAA6C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				A47E72F121649A5D00303F19 /* InApp Localization */,
 				A4C200E521633DD300BCAA6C /* Assets.xcassets */,
 				A4C200DE21633DD100BCAA6C /* AppDelegate.swift */,
 				A4C200EA21633DD300BCAA6C /* Info.plist */,
@@ -201,7 +260,8 @@
 		A4C200FA216346A400BCAA6C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A4C200E021633DD100BCAA6C /* ViewController.swift */,
+				A47E72F72164B24600303F19 /* Viewcontrollers */,
+				A47E72E62164948F00303F19 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +269,7 @@
 		A4C200FB216346AA00BCAA6C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A47E72F42164AAEC00303F19 /* ViewModels */,
 				A4C2010E2163692400BCAA6C /* Repository */,
 			);
 			path = ViewModel;
@@ -245,6 +306,7 @@
 			children = (
 				A41D3DA12163888F00CD242C /* Networking */,
 				A4C2010F21636A1800BCAA6C /* DataRepository.swift */,
+				A47E72FE2164E4F800303F19 /* MinutelyDataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -309,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47E72EC2164966E00303F19 /* MinutelyCell.xib in Resources */,
 				A4C200E921633DD300BCAA6C /* LaunchScreen.storyboard in Resources */,
 				A4C200E621633DD300BCAA6C /* Assets.xcassets in Resources */,
 				A4C200E421633DD100BCAA6C /* Main.storyboard in Resources */,
@@ -372,18 +435,27 @@
 				A41D3DA521638A1500CD242C /* String+Encoding.swift in Sources */,
 				A41D3D9C2163855C00CD242C /* MinutelyWetherData.swift in Sources */,
 				A41D3DA3216388A400CD242C /* MoyaService.swift in Sources */,
+				A47E72FD2164D0E100303F19 /* UIActivityIndicatorView+Loading.swift in Sources */,
+				A47E72F321649FCC00303F19 /* TableViewCell+ReuseIdentifier.swift in Sources */,
+				A47E72F92164B25600303F19 /* BaseVC.swift in Sources */,
+				A47E72FF2164E4F800303F19 /* MinutelyDataRepository.swift in Sources */,
 				A4C200FF21634E9E00BCAA6C /* SimpleWeatherProtocol.swift in Sources */,
 				A4C2010221634FC200BCAA6C /* HourlyWeatherProtocol.swift in Sources */,
 				A4C201072163583600BCAA6C /* CurrentWeather.swift in Sources */,
 				A4C2010B21635DE500BCAA6C /* HourlyWeather.swift in Sources */,
 				A4C200F42163439800BCAA6C /* JSONDecoder+MultipleLevels.swift in Sources */,
+				A47E72EB2164966E00303F19 /* MinutelyCell.swift in Sources */,
 				A4C2010D21635E8200BCAA6C /* DailyWeather.swift in Sources */,
 				A4C201142163841100BCAA6C /* SimpleTimelyWetherProtocol.swift in Sources */,
+				A47E72FB2164B7F900303F19 /* MinutelyCellViewModel.swift in Sources */,
 				A4C200E121633DD100BCAA6C /* ViewController.swift in Sources */,
 				A41D3DA921638E1100CD242C /* Optional+Unwraping.swift in Sources */,
 				A4C20104216351A000BCAA6C /* DailyWeatherProtocol.swift in Sources */,
 				A41D3DA721638B6900CD242C /* MoyaPlugin.swift in Sources */,
+				A47E72F021649A5700303F19 /* LanguageManager.swift in Sources */,
+				A47E72EE216499F300303F19 /* UIView+Localization.swift in Sources */,
 				A41D3DA0216387EE00CD242C /* HourlyWetherData.swift in Sources */,
+				A47E72F62164AC0500303F19 /* MinutelyCellListViewModel.swift in Sources */,
 				A4C2010921635C3000BCAA6C /* MinutelyWeather.swift in Sources */,
 				A4C2011021636A1800BCAA6C /* DataRepository.swift in Sources */,
 				A41D3D9F216387EE00CD242C /* DailyWetherData.swift in Sources */,
@@ -540,6 +612,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Wether/General/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Wether/General/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

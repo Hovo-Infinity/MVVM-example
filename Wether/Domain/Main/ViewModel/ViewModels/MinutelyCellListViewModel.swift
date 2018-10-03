@@ -1,0 +1,44 @@
+//
+//  MinutelyCellListViewModel.swift
+//  Wether
+//
+//  Created by Hovhannes Stepanyan on 10/3/18.
+//  Copyright © 2018 Hovhannes Stepanyan. All rights reserved.
+//
+
+import Foundation
+import RxSwift
+import RxCocoa
+
+class MinutelyCellListViewModel {
+    var disposeBag = DisposeBag()
+    
+    var minutelyCellModels: BehaviorRelay<[MinutelyCellViewModel]> = BehaviorRelay(value: [])
+    
+    private var models: [MinutelyWeather] = [] {
+        didSet {
+            var value = self.minutelyCellModels.value
+            value = models.map({ MinutelyCellViewModel(model: $0) })
+            self.minutelyCellModels.accept(value)
+        }
+    }
+    
+    func fetchData() {
+        DataRepository.getInstance().getObservableWeather()
+            .subscribe { event in
+                switch event {
+                case .next(let elem):
+                    self.models = elem!
+                    break
+                case .completed:
+                    self.models = event.element!!
+                    break
+                case .error(_):
+                    break
+                }
+            }
+        .disposed(by: disposeBag)
+    }
+    
+    
+}

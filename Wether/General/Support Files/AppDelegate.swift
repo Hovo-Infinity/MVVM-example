@@ -16,24 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        DataRepository.getInstance().getDatas().subscribe { event in
-            switch event {
-            case .error(let error):
-                print(error)
-                break
-            case .completed:
-                print("completed")
-                break
-            case .next(let element):
-                do {
-                    let repos = try JSONDecoder().decode(WetherData.self, from: element.data)
-                    print(repos.offset)
-                } catch {
-                    print(error)
-                }
-                break
-            }
-        }
+        DataRepository.getInstance().getDatas() 
         return true
     }
 

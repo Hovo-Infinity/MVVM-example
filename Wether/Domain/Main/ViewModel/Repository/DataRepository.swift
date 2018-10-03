@@ -9,8 +9,13 @@
 import Foundation
 import Moya
 import RxSwift
+import RxCocoa
 
 class DataRepository {
+    let disposeBug = DisposeBag()
+    
+    let isLoading: BehaviorRelay<Bool> = BehaviorRelay(value: true)
+    
     
     private static let sInstance = DataRepository()
     
@@ -22,7 +27,7 @@ class DataRepository {
 //        return result
 //        }])
     private let provider = MoyaProvider<MoyaService>()
-    private var allData: WetherData?
+    private var allData: BehaviorRelay<WetherData?> = BehaviorRelay(value: nil)
     
     
     
@@ -31,9 +36,32 @@ class DataRepository {
     }
     
     
-    func getDatas() -> Observable<Response> {
+    func getDatas() {
         return provider.rx.request(.weather)
             .asObservable()
-            .share()
+            .subscribe({[weak self] event in
+                switch event {
+                case .error(let error):
+                    print(error)
+                    break
+                case .completed:
+                    print("completed")
+                    self?.isLoading.accept(false)
+                    break
+                case .next(let element):
+                    do {
+                        let response = try JSONDecoder().decode(WetherData.self, from: element.data)
+                        self?.allData.accept(response)
+                    } catch {
+                        print(error)
+                    }
+                    break
+                }
+            })
+        .disposed(by: disposeBug)
+    }
+    
+    func getObservableWeather() -> Observable<[MinutelyWeather]?> {
+        return MinutelyDataRepository.getInstance().getObservableWeather()
     }
 }

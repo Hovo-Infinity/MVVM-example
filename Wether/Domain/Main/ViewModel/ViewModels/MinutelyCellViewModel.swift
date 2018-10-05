@@ -17,8 +17,8 @@ class MinutelyCellViewModel {
     }
     
     func getTime() -> String {
-        let date = Date(timeIntervalSinceNow: TimeInterval(minutelyWeatherModel.time))
-        return DateFormatter().string(from: date)
+        let date = Date(timeIntervalSince1970: TimeInterval(minutelyWeatherModel.time))
+        return date.description
     }
     
     func getPrecipIntensity() -> String {

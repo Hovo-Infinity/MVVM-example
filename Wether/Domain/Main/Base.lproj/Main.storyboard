@@ -46,6 +46,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentControl" destination="r5a-gH-16s" id="L3u-61-Cky"/>
                         <outlet property="tableView" destination="LIi-FH-gpg" id="JW9-9s-VIV"/>
                     </connections>
                 </viewController>

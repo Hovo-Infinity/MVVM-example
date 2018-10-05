@@ -52,6 +52,8 @@ class DataRepository {
                     do {
                         let response = try JSONDecoder().decode(WetherData.self, from: element.data)
                         self?.allData.accept(response)
+                        MinutelyDataRepository.getInstance().updateData(response.minutely)
+                        MinutelyDataRepository.getInstance().updateSummary(response.minutely.summary)
                     } catch {
                         print(error)
                     }
@@ -61,7 +63,12 @@ class DataRepository {
         .disposed(by: disposeBug)
     }
     
-    func getObservableWeather() -> Observable<[MinutelyWeather]?> {
+    func getObservableWeather() -> BehaviorRelay<MinutelyWetherData?> {
         return MinutelyDataRepository.getInstance().getObservableWeather()
     }
+    
+    func getMinutelyWeatherSummary() -> Observable<String> {
+        return MinutelyDataRepository.getInstance().getSummary()
+    }
+    
 }

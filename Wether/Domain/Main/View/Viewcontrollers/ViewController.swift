@@ -11,6 +11,7 @@ import UIKit
 class ViewController: BaseVC {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     private var viewModel: MinutelyCellListViewModel = MinutelyCellListViewModel()
     
@@ -38,6 +39,13 @@ class ViewController: BaseVC {
                 cell.viewModel = viewModel
             }
             .disposed(by: disposebag)
+        
+        viewModel.getSummary()
+            .bind { value in
+                print("summary = \(value)")
+            }
+            .disposed(by: disposebag)
+        tableView.tableHeaderView!.rx
     }
 }
 

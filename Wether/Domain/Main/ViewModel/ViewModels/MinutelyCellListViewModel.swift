@@ -23,15 +23,21 @@ class MinutelyCellListViewModel {
         }
     }
     
+    private var summary = Variable<String>("")
+    
     func fetchData() {
         DataRepository.getInstance().getObservableWeather()
             .subscribe { event in
                 switch event {
                 case .next(let elem):
-                    self.models = elem!
+                    if elem.notNil() {
+                        self.models = elem!.data
+                    }
                     break
                 case .completed:
-                    self.models = event.element!!
+                    if let element = event.element {
+                        self.models = element!.data
+                    }
                     break
                 case .error(_):
                     break
@@ -40,5 +46,8 @@ class MinutelyCellListViewModel {
         .disposed(by: disposeBag)
     }
     
+    func getSummary() -> Observable<String> {
+        return DataRepository.getInstance().getMinutelyWeatherSummary()
+    }
     
 }

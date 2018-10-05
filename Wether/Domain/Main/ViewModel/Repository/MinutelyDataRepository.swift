@@ -12,6 +12,7 @@ import RxCocoa
 
 class MinutelyDataRepository {
     private var data: BehaviorRelay<MinutelyWetherData?> = BehaviorRelay(value: nil)
+    private var summary = Variable("")
     
     private static let sInstance = MinutelyDataRepository()
     
@@ -27,7 +28,15 @@ class MinutelyDataRepository {
         self.data.accept(data)
     }
     
-    func getObservableWeather() -> Observable<[MinutelyWeather]?> {
-        return Observable.from(optional: self.data.value?.data)
+    func updateSummary(_ summary: String) {
+        self.summary.value = summary
+    }
+    
+    func getObservableWeather() -> BehaviorRelay<MinutelyWetherData?> {
+        return data
+    }
+    
+    func getSummary() -> Observable<String> {
+        return summary.asObservable()
     }
 }

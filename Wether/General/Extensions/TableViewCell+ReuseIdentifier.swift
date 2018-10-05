@@ -17,7 +17,7 @@ extension UITableViewCell {
     static var nib: UINib? {
         let bundle = Bundle(for: self)
         let name = self.description().components(separatedBy: ".").last ?? ""
-        guard let _ = bundle.path(forResource: name, ofType: ".xib") else {
+        guard let _ = bundle.path(forResource: name, ofType: ".nib") else {
             return nil
         }
         return UINib(nibName: name, bundle: bundle)

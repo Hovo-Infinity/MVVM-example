@@ -45,7 +45,6 @@ class ViewController: BaseVC {
                 print("summary = \(value)")
             }
             .disposed(by: disposebag)
-        tableView.tableHeaderView!.rx
     }
 }
 

@@ -12,16 +12,18 @@ extension JSONDecoder {
     open func decode<T>(_ type: T.Type, from data: Data, nestedKeys: String...) throws -> T where T : Decodable {
         let json = try JSONSerialization.jsonObject(with: data, options: [])
         var tempJson: Any? = nil
-        if let jsonDict = json as? [String: Any] {
+        if var jsonDict = json as? [String: Any] {
             for i in 0..<(nestedKeys.count - 1) {
                 let key = nestedKeys[i]
                 tempJson = jsonDict[key] as? [String : Any]
                 if tempJson == nil {
                     throw NSException(name: NSExceptionName.genericException, reason: "Illegal Key \(key)", userInfo: nil) as! Error
+                } else {
+                    jsonDict = tempJson as! [String: Any]
                 }
             }
             let key = nestedKeys.last
-            tempJson = jsonDict[key!]
+            tempJson = jsonDict[key!] as! [String : Any]
             if tempJson == nil {
                 throw NSException(name: NSExceptionName.genericException, reason: "Illegal Key \(key ?? "")", userInfo: nil) as! Error
             }

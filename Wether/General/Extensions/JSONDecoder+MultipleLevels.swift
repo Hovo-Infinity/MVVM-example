@@ -23,7 +23,7 @@ extension JSONDecoder {
                 }
             }
             let key = nestedKeys.last
-            tempJson = jsonDict[key!] as! [String : Any]
+            tempJson = jsonDict[key!] as Any
             if tempJson == nil {
                 throw NSException(name: NSExceptionName.genericException, reason: "Illegal Key \(key ?? "")", userInfo: nil) as! Error
             }

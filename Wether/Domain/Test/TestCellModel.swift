@@ -21,7 +21,7 @@ struct TestSectionModel {
 }
 
 extension TestSectionModel: SectionModelType {
-    typealias Item = TestCellModel
+    typealias Item = Video
     
     init(original: TestSectionModel, items: [Item]) {
         self = original

@@ -18,6 +18,9 @@ class TestViewController: UIViewController {
     private let disposeBag: DisposeBag
     private let viewModel: TestViewModel
     private var currentPage = 2
+    private var selectedFrame = CGRect.zero
+    private var selectedImage: UIImage!
+    private var customInteractor: CustomInteractor?
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
@@ -33,6 +36,7 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(TestTableViewCell.nib, forCellReuseIdentifier: TestTableViewCell.reuseIdentifier)
         bindViews()
+        navigationController?.delegate = self
     }
     
     private func bindViews() {
@@ -51,7 +55,7 @@ class TestViewController: UIViewController {
             let cell = rxTableView.dequeueReusableCell(withIdentifier: TestTableViewCell.reuseIdentifier, for: indexPath) as! TestTableViewCell
             cell.nameLabel.text = item.name
             cell.durationLabel.text = item.duration
-            cell.thumbnailImageView.sd_setImage(with: item.imageURL)
+            cell.thumbnailImageView.sd_setImage(with: try? item.thumbnailURL.asURL())
             return cell
         })
         
@@ -65,29 +69,72 @@ class TestViewController: UIViewController {
                 Dictionary<String, [Video]>(grouping: videos, by: { $0.creator.name })
             })
             .map ({ groupedVideos -> [TestSectionModel] in
+                /*
                 let mapedValues = groupedVideos.mapValues({
                     $0.map({
                         TestCellModel(name: $0.name, duration: $0.humanReadableDuration, imageURL: try? $0.thumbnailURL.asURL())
                     })
                 })
-                return mapedValues.map({
+                */
+                return groupedVideos.map({
                     TestSectionModel(header: $0.key, items: $0.value )
                 })
             })
             .bind(to: tableView.rx.items(dataSource: rxDataSource))
             .disposed(by: disposeBag)
         
+        tableView.rx.willDisplayCell.bind {[weak self] cell, indexPath in
+            guard let weakSelf = self else { return }
+            let lastSection = weakSelf.tableView.numberOfSections - 1
+            let lastRow = weakSelf.tableView.numberOfRows(inSection: lastSection) - 1
+            if indexPath == IndexPath(row: lastRow, section: lastSection) {
+                weakSelf.viewModel.fetchDatas(page: weakSelf.currentPage)
+                weakSelf.currentPage += 1
+            }
+        }.disposed(by: disposeBag)
+        
         tableView.rx.didScroll.subscribe(onNext: { esim in
             let  height = self.tableView.frame.size.height
             let contentYoffset = self.tableView.contentOffset.y
             let distanceFromBottom = self.tableView.contentSize.height - contentYoffset
-            if distanceFromBottom < height + 500 {
-                self.viewModel.fetchDatas(page: self.currentPage)
-                self.currentPage += 1
+            if distanceFromBottom < height {
+                print("scrolled till end")
             }
+        })
+        .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.bind {[weak self] indexPath in
+            guard let weakSelf = self else { return }
+            let cell = weakSelf.tableView.cellForRow(at: indexPath)! as! TestTableViewCell
+            let frameInView = weakSelf.tableView.convert(cell.frame, to: weakSelf.view)
+            weakSelf.selectedFrame = frameInView
+            weakSelf.selectedImage = cell.thumbnailImageView.image!
+        }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(Video.self).bind(onNext: {[weak self] video in
+            guard let weakSelf = self else { return }
+            let previewViewModel = weakSelf.viewModel.previewViewModelFor(video)
+            let vc = VidoPreviewViewController.viewControllerFor(previewViewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
         })
         .disposed(by: disposeBag)
         
     }
 
+}
+
+extension TestViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let isPresenting = operation == .push
+        if isPresenting {
+            self.customInteractor = CustomInteractor(attachTo: toVC)
+        }
+        return CustomPushTransition(duration: 0.65, isPresenting: isPresenting, originFrame: selectedFrame, image: selectedImage)
+    }
+    
+    func navigationController(_ navigationController: UINavigationController,
+                              interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard let ci = customInteractor else { return nil }
+        return ci.transitionInProgress ? customInteractor : nil
+    }
 }

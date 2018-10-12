@@ -11,21 +11,17 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-struct TestViewModel {
-    private var disposeBag: DisposeBag
+struct TestViewModel: BaseViewModeling {
+    internal var disposeBag: DisposeBag
     private var repo = TestRepo()
     private var hasNextPage = BehaviorRelay(value: false)
     private var isLoadingVar = BehaviorRelay(value: true)
-    private var errorSubject = PublishSubject<Error>()
-    private(set) var model: BehaviorRelay<[Video]>
+    var error = PublishSubject<Error>()
+    var model: BehaviorRelay<[Video]>!
     
     
     var isLoading: Observable<Bool> {
         return isLoadingVar.asObservable()
-    }
-    
-    var error: Observable<Error> {
-        return errorSubject.asObservable()
     }
     
     init(disposeBag: DisposeBag) {
@@ -58,7 +54,7 @@ extension TestViewModel {
                 self.hasNextPage.accept(true)
                 self.model.accept(videos)
             }, onError: { error in
-                self.errorSubject.onNext(error)
+                self.error.onNext(error)
             }, onCompleted: {
                 self.isLoadingVar.accept(false)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -78,5 +74,9 @@ extension TestViewModel {
                 })
                 .disposed(by: disposeBag)
         }
+    }
+    
+    public func previewViewModelFor(_ video: Video) -> VideoPreviewViewModel {
+        return VideoPreviewViewModel(disposeBag: disposeBag, model: video)
     }
 }

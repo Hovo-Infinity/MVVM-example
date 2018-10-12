@@ -17,6 +17,11 @@
 		A46CEFFA216DDBB000FF20AF /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CEFF8216DDBB000FF20AF /* TestTableViewCell.swift */; };
 		A46CEFFB216DDBB000FF20AF /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46CEFF9216DDBB000FF20AF /* TestTableViewCell.xib */; };
 		A46CEFFD216E0F3500FF20AF /* TestCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CEFFC216E0F3400FF20AF /* TestCellModel.swift */; };
+		A46CEFFF2170714400FF20AF /* CustomPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CEFFE2170714400FF20AF /* CustomPushTransition.swift */; };
+		A46CF0022170773F00FF20AF /* VidoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CF0002170773F00FF20AF /* VidoPreviewViewController.swift */; };
+		A46CF0032170773F00FF20AF /* VidoPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46CF0012170773F00FF20AF /* VidoPreviewViewController.xib */; };
+		A46CF00521707A9400FF20AF /* VideoPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CF00421707A9400FF20AF /* VideoPreviewViewModel.swift */; };
+		A46CF00721707AFF00FF20AF /* BaseViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46CF00621707AFF00FF20AF /* BaseViewModeling.swift */; };
 		A47E72EB2164966E00303F19 /* MinutelyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72E92164966E00303F19 /* MinutelyCell.swift */; };
 		A47E72EC2164966E00303F19 /* MinutelyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47E72EA2164966E00303F19 /* MinutelyCell.xib */; };
 		A47E72EE216499F300303F19 /* UIView+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E72ED216499F300303F19 /* UIView+Localization.swift */; };
@@ -48,6 +53,7 @@
 		A4C2011021636A1800BCAA6C /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C2010F21636A1800BCAA6C /* DataRepository.swift */; };
 		A4C20112216380F400BCAA6C /* WetherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C20111216380F400BCAA6C /* WetherData.swift */; };
 		A4C201142163841100BCAA6C /* SimpleTimelyWetherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C201132163841100BCAA6C /* SimpleTimelyWetherProtocol.swift */; };
+		A4FDDC1A2170DFE900FFED13 /* CustomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDDC192170DFE900FFED13 /* CustomInteractor.swift */; };
 		AA34A0BB9EE425AD2B5D6F18 /* Pods_Wether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2657E9FEE897D5591A5D829C /* Pods_Wether.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +69,11 @@
 		A46CEFF8216DDBB000FF20AF /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		A46CEFF9216DDBB000FF20AF /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		A46CEFFC216E0F3400FF20AF /* TestCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCellModel.swift; sourceTree = "<group>"; };
+		A46CEFFE2170714400FF20AF /* CustomPushTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushTransition.swift; sourceTree = "<group>"; };
+		A46CF0002170773F00FF20AF /* VidoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidoPreviewViewController.swift; sourceTree = "<group>"; };
+		A46CF0012170773F00FF20AF /* VidoPreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VidoPreviewViewController.xib; sourceTree = "<group>"; };
+		A46CF00421707A9400FF20AF /* VideoPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewViewModel.swift; sourceTree = "<group>"; };
+		A46CF00621707AFF00FF20AF /* BaseViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModeling.swift; sourceTree = "<group>"; };
 		A47E72E92164966E00303F19 /* MinutelyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutelyCell.swift; sourceTree = "<group>"; };
 		A47E72EA2164966E00303F19 /* MinutelyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MinutelyCell.xib; sourceTree = "<group>"; };
 		A47E72ED216499F300303F19 /* UIView+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Localization.swift"; sourceTree = "<group>"; };
@@ -96,6 +107,7 @@
 		A4C2010F21636A1800BCAA6C /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		A4C20111216380F400BCAA6C /* WetherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherData.swift; sourceTree = "<group>"; };
 		A4C201132163841100BCAA6C /* SimpleTimelyWetherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTimelyWetherProtocol.swift; sourceTree = "<group>"; };
+		A4FDDC192170DFE900FFED13 /* CustomInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractor.swift; sourceTree = "<group>"; };
 		AABA725AD5677049FA334DDE /* Pods-Wether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wether/Pods-Wether.debug.xcconfig"; sourceTree = "<group>"; };
 		E4719B9B72674AF0790EB625 /* Pods-Wether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wether.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wether/Pods-Wether.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +195,12 @@
 				A46CEFF8216DDBB000FF20AF /* TestTableViewCell.swift */,
 				A46CEFF9216DDBB000FF20AF /* TestTableViewCell.xib */,
 				A46CEFFC216E0F3400FF20AF /* TestCellModel.swift */,
+				A46CEFFE2170714400FF20AF /* CustomPushTransition.swift */,
+				A46CF0002170773F00FF20AF /* VidoPreviewViewController.swift */,
+				A46CF0012170773F00FF20AF /* VidoPreviewViewController.xib */,
+				A46CF00421707A9400FF20AF /* VideoPreviewViewModel.swift */,
+				A46CF00621707AFF00FF20AF /* BaseViewModeling.swift */,
+				A4FDDC192170DFE900FFED13 /* CustomInteractor.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -403,6 +421,7 @@
 				A47E72EC2164966E00303F19 /* MinutelyCell.xib in Resources */,
 				A4C200E921633DD300BCAA6C /* LaunchScreen.storyboard in Resources */,
 				A4C200E621633DD300BCAA6C /* Assets.xcassets in Resources */,
+				A46CF0032170773F00FF20AF /* VidoPreviewViewController.xib in Resources */,
 				A46CEFFB216DDBB000FF20AF /* TestTableViewCell.xib in Resources */,
 				A4C200E421633DD100BCAA6C /* Main.storyboard in Resources */,
 			);
@@ -477,6 +496,7 @@
 				A47E72F92164B25600303F19 /* BaseVC.swift in Sources */,
 				A46CEFFD216E0F3500FF20AF /* TestCellModel.swift in Sources */,
 				A47E72FF2164E4F800303F19 /* MinutelyDataRepository.swift in Sources */,
+				A46CF0022170773F00FF20AF /* VidoPreviewViewController.swift in Sources */,
 				A4C200FF21634E9E00BCAA6C /* SimpleWeatherProtocol.swift in Sources */,
 				A4C2010221634FC200BCAA6C /* HourlyWeatherProtocol.swift in Sources */,
 				A4C201072163583600BCAA6C /* CurrentWeather.swift in Sources */,
@@ -486,6 +506,7 @@
 				A4C2010D21635E8200BCAA6C /* DailyWeather.swift in Sources */,
 				A4C201142163841100BCAA6C /* SimpleTimelyWetherProtocol.swift in Sources */,
 				A47E72FB2164B7F900303F19 /* MinutelyCellViewModel.swift in Sources */,
+				A4FDDC1A2170DFE900FFED13 /* CustomInteractor.swift in Sources */,
 				A4C200E121633DD100BCAA6C /* ViewController.swift in Sources */,
 				A41D3DA921638E1100CD242C /* Optional+Unwraping.swift in Sources */,
 				A46CEFFA216DDBB000FF20AF /* TestTableViewCell.swift in Sources */,
@@ -494,11 +515,14 @@
 				A47E72F021649A5700303F19 /* LanguageManager.swift in Sources */,
 				A47E72EE216499F300303F19 /* UIView+Localization.swift in Sources */,
 				A41D3DA0216387EE00CD242C /* HourlyWetherData.swift in Sources */,
+				A46CF00521707A9400FF20AF /* VideoPreviewViewModel.swift in Sources */,
 				A47E73042167373200303F19 /* TestModel.swift in Sources */,
 				A47E73082167375E00303F19 /* TestRepo.swift in Sources */,
+				A46CF00721707AFF00FF20AF /* BaseViewModeling.swift in Sources */,
 				A47E7302216736C400303F19 /* TestViewController.swift in Sources */,
 				A47E72F62164AC0500303F19 /* MinutelyCellListViewModel.swift in Sources */,
 				A4C2010921635C3000BCAA6C /* MinutelyWeather.swift in Sources */,
+				A46CEFFF2170714400FF20AF /* CustomPushTransition.swift in Sources */,
 				A4C2011021636A1800BCAA6C /* DataRepository.swift in Sources */,
 				A41D3D9F216387EE00CD242C /* DailyWetherData.swift in Sources */,
 				A4C200DF21633DD100BCAA6C /* AppDelegate.swift in Sources */,

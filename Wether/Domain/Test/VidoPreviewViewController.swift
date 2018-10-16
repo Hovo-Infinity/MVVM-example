@@ -16,6 +16,7 @@ class VidoPreviewViewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var creatorLabel: UILabel!
+    @IBOutlet private weak var scrollView: UIScrollView!
     private var viewModel: VideoPreviewViewModel!
     private let disposeBag = DisposeBag()
 
@@ -40,5 +41,18 @@ class VidoPreviewViewController: UIViewController {
             weakSelf.creatorLabel.text = video.creator.name
         })
         .disposed(by: disposeBag)
+    }
+}
+
+extension VidoPreviewViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let y = scrollView.contentOffset.y
+        if y > 0 {
+            imageView.transform = .identity
+        } else {
+            let h = imageView.frame.height
+            let s = (h - y) / h
+            imageView.transform = CGAffineTransform(scaleX: s, y: s)
+        }
     }
 }

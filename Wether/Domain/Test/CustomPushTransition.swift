@@ -23,7 +23,7 @@ class CustomPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return duration
+        return 2 * duration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -33,7 +33,6 @@ class CustomPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
             let toView = transitionContext.view(forKey: .to) else { return }
         self.isPresenting ? container.addSubview(toView) : container.insertSubview(toView, belowSubview: fromView)
         let nextVisibleView = isPresenting ? toView : fromView
-        let prevVisibleView = isPresenting ? fromView : toView
         toView.frame = isPresenting ? CGRect(x: fromView.frame.width, y: 0, width: fromView.frame.width, height: fromView.frame.height) : toView.frame
         toView.alpha = isPresenting ? 0 : 1
         toView.layoutIfNeeded()
@@ -55,15 +54,35 @@ class CustomPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
 //            prevVisibleView.transform = self.isPresenting ? CGAffineTransform(scaleX: 0.85, y: 1.1) : .identity
         }
         
-        UIViewPropertyAnimator
-            .runningPropertyAnimator(withDuration: duration,
-                                     delay: 0.0,
-                                     options: .curveLinear,
-                                     animations: animations) { _ in
-                                        transitionImageView.removeFromSuperview()
-                                        artwork.alpha = 1
-                                        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        let animator = UIViewPropertyAnimator(duration: 2 * duration,
+                                              curve: .linear)
+        if isPresenting {
+            animator.addAnimations {
+                fromView.alpha = 0.0
+            }
+            animator.addAnimations({
+                transitionImageView.frame = self.isPresenting ? artwork.frame : self.originFrame
+                nextVisibleView.frame = self.isPresenting ?
+                    fromView.frame : CGRect(x: toView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
+                nextVisibleView.alpha = self.isPresenting ? 1 : 0
+            }, delayFactor: 0.5)
+        } else {
+            toView.alpha = 0.0
+            animator.addAnimations {
+                transitionImageView.frame = self.isPresenting ? artwork.frame : self.originFrame
+                nextVisibleView.frame = self.isPresenting ?
+                    fromView.frame : CGRect(x: toView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
+            }
+            animator.addAnimations({
+                toView.alpha = 1.0
+            }, delayFactor: 0.5)
         }
+        animator.addCompletion { _ in
+            transitionImageView.removeFromSuperview()
+            artwork.alpha = 1
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }
+        animator.startAnimation()
     }
     
     

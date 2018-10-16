@@ -15,6 +15,7 @@
                 <outlet property="creatorLabel" destination="CGH-OL-4ml" id="leF-QO-lc8"/>
                 <outlet property="imageView" destination="M5a-rh-TfJ" id="6Fa-xb-Tqn"/>
                 <outlet property="nameLabel" destination="N7m-dw-cDQ" id="ehe-j1-Y1C"/>
+                <outlet property="scrollView" destination="84m-FC-EKG" id="Nkj-xQ-pJC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -66,6 +67,9 @@
                         <constraint firstAttribute="bottom" secondItem="iy5-GB-aRg" secondAttribute="bottom" id="kjk-av-QbH"/>
                         <constraint firstItem="iy5-GB-aRg" firstAttribute="height" secondItem="84m-FC-EKG" secondAttribute="height" multiplier="1.5" id="pQi-ez-jBB"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="4pM-eZ-gpe"/>
+                    </connections>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

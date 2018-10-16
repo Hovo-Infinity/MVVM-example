@@ -54,6 +54,16 @@
 		A4C20112216380F400BCAA6C /* WetherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C20111216380F400BCAA6C /* WetherData.swift */; };
 		A4C201142163841100BCAA6C /* SimpleTimelyWetherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C201132163841100BCAA6C /* SimpleTimelyWetherProtocol.swift */; };
 		A4FDDC1A2170DFE900FFED13 /* CustomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FDDC192170DFE900FFED13 /* CustomInteractor.swift */; };
+		A4FF2C82217489CF00759F00 /* TestDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C80217489CF00759F00 /* TestDataModel.xcdatamodeld */; };
+		A4FF2C902174A7C200759F00 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C8F2174A7C200759F00 /* CoreDataManager.swift */; };
+		A4FF2C952174B64500759F00 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C932174B64500759F00 /* Reachability.swift */; };
+		A4FF2C962174B64500759F00 /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C942174B64500759F00 /* ReachabilityService.swift */; };
+		A4FF2C982174D6AC00759F00 /* Video+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C972174D6AC00759F00 /* Video+CoreDataProperties.swift */; };
+		A4FF2C9A2174D6C500759F00 /* Video+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C992174D6C500759F00 /* Video+CoreDataClass.swift */; };
+		A4FF2C9C2174D6DB00759F00 /* ThumbnailSize+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C9B2174D6DB00759F00 /* ThumbnailSize+CoreDataProperties.swift */; };
+		A4FF2C9E2174D6E200759F00 /* ThumbnailSize+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C9D2174D6E200759F00 /* ThumbnailSize+CoreDataClass.swift */; };
+		A4FF2CA02174D70300759F00 /* Creator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C9F2174D70200759F00 /* Creator+CoreDataProperties.swift */; };
+		A4FF2CA22174D70A00759F00 /* Creator+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2CA12174D70A00759F00 /* Creator+CoreDataClass.swift */; };
 		AA34A0BB9EE425AD2B5D6F18 /* Pods_Wether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2657E9FEE897D5591A5D829C /* Pods_Wether.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +118,16 @@
 		A4C20111216380F400BCAA6C /* WetherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WetherData.swift; sourceTree = "<group>"; };
 		A4C201132163841100BCAA6C /* SimpleTimelyWetherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTimelyWetherProtocol.swift; sourceTree = "<group>"; };
 		A4FDDC192170DFE900FFED13 /* CustomInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractor.swift; sourceTree = "<group>"; };
+		A4FF2C81217489CF00759F00 /* TestDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestDataModel.xcdatamodel; sourceTree = "<group>"; };
+		A4FF2C8F2174A7C200759F00 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A4FF2C932174B64500759F00 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		A4FF2C942174B64500759F00 /* ReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
+		A4FF2C972174D6AC00759F00 /* Video+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A4FF2C992174D6C500759F00 /* Video+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A4FF2C9B2174D6DB00759F00 /* ThumbnailSize+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThumbnailSize+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A4FF2C9D2174D6E200759F00 /* ThumbnailSize+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThumbnailSize+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A4FF2C9F2174D70200759F00 /* Creator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Creator+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A4FF2CA12174D70A00759F00 /* Creator+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Creator+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AABA725AD5677049FA334DDE /* Pods-Wether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wether/Pods-Wether.debug.xcconfig"; sourceTree = "<group>"; };
 		E4719B9B72674AF0790EB625 /* Pods-Wether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wether.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wether/Pods-Wether.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +208,7 @@
 		A47E7300216736AA00303F19 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				A4FF2C912174A9AB00759F00 /* CoreData */,
 				A47E7301216736C400303F19 /* TestViewController.swift */,
 				A47E73032167373200303F19 /* TestModel.swift */,
 				A47E73052167375300303F19 /* TestViewModel.swift */,
@@ -267,6 +288,7 @@
 		A4C200F62163440D00BCAA6C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				A4FF2C922174B59000759F00 /* Reachibility */,
 				A47E72F121649A5D00303F19 /* InApp Localization */,
 				A4C200E521633DD300BCAA6C /* Assets.xcassets */,
 				A4C200DE21633DD100BCAA6C /* AppDelegate.swift */,
@@ -356,6 +378,30 @@
 				A47E72FE2164E4F800303F19 /* MinutelyDataRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		A4FF2C912174A9AB00759F00 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A4FF2C80217489CF00759F00 /* TestDataModel.xcdatamodeld */,
+				A4FF2C8F2174A7C200759F00 /* CoreDataManager.swift */,
+				A4FF2C972174D6AC00759F00 /* Video+CoreDataProperties.swift */,
+				A4FF2C992174D6C500759F00 /* Video+CoreDataClass.swift */,
+				A4FF2C9B2174D6DB00759F00 /* ThumbnailSize+CoreDataProperties.swift */,
+				A4FF2C9D2174D6E200759F00 /* ThumbnailSize+CoreDataClass.swift */,
+				A4FF2C9F2174D70200759F00 /* Creator+CoreDataProperties.swift */,
+				A4FF2CA12174D70A00759F00 /* Creator+CoreDataClass.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		A4FF2C922174B59000759F00 /* Reachibility */ = {
+			isa = PBXGroup;
+			children = (
+				A4FF2C932174B64500759F00 /* Reachability.swift */,
+				A4FF2C942174B64500759F00 /* ReachabilityService.swift */,
+			);
+			path = Reachibility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +538,7 @@
 				A41D3DA3216388A400CD242C /* MoyaService.swift in Sources */,
 				A47E73062167375300303F19 /* TestViewModel.swift in Sources */,
 				A47E72FD2164D0E100303F19 /* UIActivityIndicatorView+Loading.swift in Sources */,
+				A4FF2CA22174D70A00759F00 /* Creator+CoreDataClass.swift in Sources */,
 				A47E72F321649FCC00303F19 /* TableViewCell+ReuseIdentifier.swift in Sources */,
 				A47E72F92164B25600303F19 /* BaseVC.swift in Sources */,
 				A46CEFFD216E0F3500FF20AF /* TestCellModel.swift in Sources */,
@@ -499,16 +546,22 @@
 				A46CF0022170773F00FF20AF /* VidoPreviewViewController.swift in Sources */,
 				A4C200FF21634E9E00BCAA6C /* SimpleWeatherProtocol.swift in Sources */,
 				A4C2010221634FC200BCAA6C /* HourlyWeatherProtocol.swift in Sources */,
+				A4FF2C9E2174D6E200759F00 /* ThumbnailSize+CoreDataClass.swift in Sources */,
 				A4C201072163583600BCAA6C /* CurrentWeather.swift in Sources */,
 				A4C2010B21635DE500BCAA6C /* HourlyWeather.swift in Sources */,
 				A4C200F42163439800BCAA6C /* JSONDecoder+MultipleLevels.swift in Sources */,
 				A47E72EB2164966E00303F19 /* MinutelyCell.swift in Sources */,
+				A4FF2C902174A7C200759F00 /* CoreDataManager.swift in Sources */,
 				A4C2010D21635E8200BCAA6C /* DailyWeather.swift in Sources */,
 				A4C201142163841100BCAA6C /* SimpleTimelyWetherProtocol.swift in Sources */,
 				A47E72FB2164B7F900303F19 /* MinutelyCellViewModel.swift in Sources */,
+				A4FF2CA02174D70300759F00 /* Creator+CoreDataProperties.swift in Sources */,
 				A4FDDC1A2170DFE900FFED13 /* CustomInteractor.swift in Sources */,
 				A4C200E121633DD100BCAA6C /* ViewController.swift in Sources */,
 				A41D3DA921638E1100CD242C /* Optional+Unwraping.swift in Sources */,
+				A4FF2C9A2174D6C500759F00 /* Video+CoreDataClass.swift in Sources */,
+				A4FF2C9C2174D6DB00759F00 /* ThumbnailSize+CoreDataProperties.swift in Sources */,
+				A4FF2C962174B64500759F00 /* ReachabilityService.swift in Sources */,
 				A46CEFFA216DDBB000FF20AF /* TestTableViewCell.swift in Sources */,
 				A4C20104216351A000BCAA6C /* DailyWeatherProtocol.swift in Sources */,
 				A41D3DA721638B6900CD242C /* MoyaPlugin.swift in Sources */,
@@ -520,6 +573,8 @@
 				A47E73082167375E00303F19 /* TestRepo.swift in Sources */,
 				A46CF00721707AFF00FF20AF /* BaseViewModeling.swift in Sources */,
 				A47E7302216736C400303F19 /* TestViewController.swift in Sources */,
+				A4FF2C982174D6AC00759F00 /* Video+CoreDataProperties.swift in Sources */,
+				A4FF2C82217489CF00759F00 /* TestDataModel.xcdatamodeld in Sources */,
 				A47E72F62164AC0500303F19 /* MinutelyCellListViewModel.swift in Sources */,
 				A4C2010921635C3000BCAA6C /* MinutelyWeather.swift in Sources */,
 				A46CEFFF2170714400FF20AF /* CustomPushTransition.swift in Sources */,
@@ -527,6 +582,7 @@
 				A41D3D9F216387EE00CD242C /* DailyWetherData.swift in Sources */,
 				A4C200DF21633DD100BCAA6C /* AppDelegate.swift in Sources */,
 				A4C20112216380F400BCAA6C /* WetherData.swift in Sources */,
+				A4FF2C952174B64500759F00 /* Reachability.swift in Sources */,
 				A4C200FD2163497500BCAA6C /* Flags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,6 +787,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A4FF2C80217489CF00759F00 /* TestDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A4FF2C81217489CF00759F00 /* TestDataModel.xcdatamodel */,
+			);
+			currentVersion = A4FF2C81217489CF00759F00 /* TestDataModel.xcdatamodel */;
+			path = TestDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A4C200D321633DD100BCAA6C /* Project object */;
 }

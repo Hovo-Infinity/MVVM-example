@@ -53,17 +53,28 @@ extension TestTargetType: TargetType {
 
 class TestRepo {
     let apiProvider = MoyaProvider<TestTargetType>()
+    let reachibilityService = try? DefaultReachabilityService()
+    let disposeBag = DisposeBag()
     
     func fetchData(forPage page: Int) -> Observable<[Video]> {
+        reachibilityService?._reachability.currentReachabilityStatus
         return apiProvider.rx
             .request(TestTargetType.basic(page))
             .asObservable()
             .map {
                 let data = $0.data
-                return try JSONDecoder().decode([Video].self, from: data)
+                do {
+                    let x = try JSONDecoder().decode([Video].self, from: data)
+                    return x
+                } catch  {
+                    print(error)
+                    return []
+                }
+                
             }
             .asDriver(onErrorJustReturn: [])
             .asObservable()
+        
     }
     
 }

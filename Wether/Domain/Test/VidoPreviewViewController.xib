@@ -71,10 +71,22 @@
                         <outlet property="delegate" destination="-1" id="4pM-eZ-gpe"/>
                     </connections>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhX-aG-LGP">
+                    <rect key="frame" x="165.5" y="182.5" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="7t2-1S-jGF"/>
+                        <constraint firstAttribute="width" constant="44" id="csb-bE-L5q"/>
+                    </constraints>
+                    <state key="normal" image="play"/>
+                    <connections>
+                        <action selector="playVideo:" destination="-1" eventType="touchUpInside" id="Veh-KW-vMo"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="iy5-GB-aRg" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="0MP-rv-2dY"/>
+                <constraint firstItem="VhX-aG-LGP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="16u-o2-MvN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="84m-FC-EKG" secondAttribute="bottom" id="8or-p7-oF4"/>
                 <constraint firstItem="84m-FC-EKG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OEe-FQ-cJI"/>
                 <constraint firstItem="M5a-rh-TfJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZGC-8C-yAP"/>
@@ -82,9 +94,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="84m-FC-EKG" secondAttribute="trailing" id="mgz-e0-u29"/>
                 <constraint firstItem="84m-FC-EKG" firstAttribute="top" secondItem="M5a-rh-TfJ" secondAttribute="bottom" id="qm7-EA-54f"/>
                 <constraint firstItem="M5a-rh-TfJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="s7f-vk-abt"/>
+                <constraint firstItem="VhX-aG-LGP" firstAttribute="centerY" secondItem="M5a-rh-TfJ" secondAttribute="centerY" id="ySh-9u-4pD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="138.40000000000001" y="154.27286356821591"/>
         </view>
     </objects>
+    <resources>
+        <image name="play" width="1024" height="1024"/>
+    </resources>
 </document>

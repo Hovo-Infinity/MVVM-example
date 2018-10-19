@@ -11,7 +11,7 @@ target 'Wether' do
     pod 'Moya/RxSwift', '~> 11.0'
     pod 'SDWebImage', '~> 4.0'
     pod 'RxDataSources', '~> 3.0'
-
+    pod 'XCDYouTubeKit', '~> 2.6'
   # Pods for Wether
 
 end

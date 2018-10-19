@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 import RxSwift
+import CoreData
 
 //  http://www.mocky.io/v2
 enum TestTargetType {
@@ -28,7 +29,7 @@ extension TestTargetType: TargetType {
             case 2:
                 return "/v2/5bbdf5ed3100007c007112e6"
             default:
-                return ""
+                return "adidas"
             }
         }
     }
@@ -51,30 +52,75 @@ extension TestTargetType: TargetType {
     
 }
 
-class TestRepo {
+class TestRepo: NSObject {
     let apiProvider = MoyaProvider<TestTargetType>()
     let reachibilityService = try? DefaultReachabilityService()
     let disposeBag = DisposeBag()
+    var _fetchedResultsController: NSFetchedResultsController<Video>? = nil
+    var fetchedResultsController: NSFetchedResultsController<Video> {
+        if _fetchedResultsController != nil {
+            return _fetchedResultsController!
+        }
+        
+        let fetchRequest: NSFetchRequest<Video> = Video.fetchRequest()
+        fetchRequest.sortDescriptors = []
+        
+        let aFetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                managedObjectContext: CoreDataManager.sInstance.viewContext,
+                                                                sectionNameKeyPath: nil,
+                                                                cacheName: nil)
+        
+        aFetchResultController.delegate = self
+        _fetchedResultsController = aFetchResultController
+        do {
+            // Perform the initial fetch to Core Data.
+            // After this step, the fetched results controller
+            // will only retrieve more records if necessary.
+            try _fetchedResultsController!.performFetch()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
+        return _fetchedResultsController!
+    }
+    private lazy var fetchRequest: NSFetchRequest<Video> = {
+        let fetchRequest = NSFetchRequest<Video>(entityName: "Video")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "videoID", ascending: true)]
+        let context = CoreDataManager.sInstance.viewContext
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: "Video", in: context)
+        return fetchRequest
+    }()
     
     func fetchData(forPage page: Int) -> Observable<[Video]> {
-        reachibilityService?._reachability.currentReachabilityStatus
-        return apiProvider.rx
-            .request(TestTargetType.basic(page))
-            .asObservable()
-            .map {
-                let data = $0.data
-                do {
-                    let x = try JSONDecoder().decode([Video].self, from: data)
-                    return x
-                } catch  {
-                    print(error)
-                    return []
+        let context = CoreDataManager.sInstance.viewContext
+        let videos: [Video]? = nil//try? context.fetch(fetchRequest)
+        if videos.valueOr([]).isEmpty {
+            return apiProvider.rx
+                .request(TestTargetType.basic(page))
+                .asObservable()
+                .map {
+                    let data = $0.data
+                    do {
+                        let x = try JSONDecoder().decode([Video].self, from: data)
+                        return x
+                    } catch  {
+                        print(error)
+                        return []
+                    }
+                    
                 }
-                
-            }
-            .asDriver(onErrorJustReturn: [])
-            .asObservable()
+                .asObservable()
+        } else {
+            return Observable.just(videos!)
+        }
         
     }
     
+}
+
+extension TestRepo: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        // Whenever a change occours on our data, we refresh the table view.
+    }
 }

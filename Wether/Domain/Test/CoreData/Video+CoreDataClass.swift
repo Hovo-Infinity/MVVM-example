@@ -21,7 +21,8 @@ public class Video: NSManagedObject, Decodable {
         case width, height, duration, viewCount
         case thumbnailSize = "thumbnail"
         case videoID = "videoId"
-        case allowMobileEmbed, isSuperfresh, name
+        case isAllowMobileEmbed = "allowMobileEmbed"
+        case isSuperfresh, name
         case thumbnailURL = "thumbnailUrl"
         case webSearchURL = "webSearchUrl"
         case motionThumbnailURL = "motionThumbnailUrl"
@@ -46,17 +47,14 @@ public class Video: NSManagedObject, Decodable {
         hostPageDisplayURL = try container.decode(String.self, forKey: .hostPageDisplayURL)
         duration = try container.decode(String.self, forKey: .duration)
         videoID = try container.decode(String.self, forKey: .videoID)
-        allowMobileEmbed = NSNumber(booleanLiteral: try container.decode(Bool.self, forKey: .allowMobileEmbed))
         isSuperfresh = try container.decode(Bool.self, forKey: .isSuperfresh)
+        isAllowMobileEmbed = try container.decode(Bool.self, forKey: .isAllowMobileEmbed)
         name = try container.decode(String.self, forKey: .name)
         thumbnailURL = try container.decode(String.self, forKey: .thumbnailURL)
         webSearchURL = try container.decode(String.self, forKey: .webSearchURL)
-        let vc = try container.decode(Int.self, forKey: .viewCount)
-        viewCount = NSNumber(integerLiteral: vc)
-        let w = try container.decode(Int.self, forKey: .width)
-        width = NSNumber(integerLiteral: w)
-        let h = try container.decode(Int.self, forKey: .height)
-        height = NSNumber(integerLiteral: h)
+        viewCount = try container.decode(Int32.self, forKey: .viewCount)
+        width = try container.decode(Int32.self, forKey: .width)
+        height = try container.decode(Int32.self, forKey: .height)
         thumbnailSize = try container.decode(ThumbnailSize.self, forKey: .thumbnailSize)
     }
 }

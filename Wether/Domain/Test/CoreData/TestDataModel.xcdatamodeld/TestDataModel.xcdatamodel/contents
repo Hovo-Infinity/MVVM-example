@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Creator" representedClassName=".Creator" syncable="YES">
+    <entity name="Creator" representedClassName="Creator" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="ThumbnailSize" representedClassName=".ThumbnailSize" syncable="YES">
-        <attribute name="height" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="width" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="ThumbnailSize" representedClassName="ThumbnailSize" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="Video" representedClassName=".Video" syncable="YES">
-        <attribute name="allowMobileEmbed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="Video" representedClassName="Video" syncable="YES">
         <attribute name="contentURL" attributeType="String" syncable="YES"/>
         <attribute name="datePublished" attributeType="String" syncable="YES"/>
         <attribute name="desc" attributeType="String" syncable="YES"/>
         <attribute name="duration" attributeType="String" syncable="YES"/>
         <attribute name="encodingFormat" attributeType="String" syncable="YES"/>
-        <attribute name="height" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hostPageDisplayURL" attributeType="String" syncable="YES"/>
         <attribute name="hostPageURL" attributeType="String" syncable="YES"/>
-        <attribute name="isSuperfresh" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isAllowMobileEmbed" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isSuperfresh" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailURL" attributeType="String" syncable="YES"/>
         <attribute name="videoID" attributeType="String" syncable="YES"/>
-        <attribute name="viewCount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="webSearchURL" attributeType="String" syncable="YES"/>
-        <attribute name="width" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="creator" maxCount="1" deletionRule="Nullify" destinationEntity="Creator" syncable="YES"/>
         <relationship name="publisher" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Creator" syncable="YES"/>
         <relationship name="thumbnailSize" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThumbnailSize" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Video" positionX="-63" positionY="-18" width="128" height="330"/>
         <element name="Creator" positionX="-54" positionY="108" width="128" height="60"/>
         <element name="ThumbnailSize" positionX="-36" positionY="117" width="128" height="75"/>
+        <element name="Video" positionX="-63" positionY="-18" width="128" height="330"/>
     </elements>
 </model>

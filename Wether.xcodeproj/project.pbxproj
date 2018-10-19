@@ -374,8 +374,8 @@
 			isa = PBXGroup;
 			children = (
 				A41D3DA12163888F00CD242C /* Networking */,
-				A4C2010F21636A1800BCAA6C /* DataRepository.swift */,
 				A47E72FE2164E4F800303F19 /* MinutelyDataRepository.swift */,
+				A4C2010F21636A1800BCAA6C /* DataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -491,6 +491,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/XCDYouTubeKit/XCDYouTubeKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -502,6 +503,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCDYouTubeKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

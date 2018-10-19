@@ -11,6 +11,8 @@ import CoreData
 
 class CoreDataManager {
     static let sInstance = CoreDataManager()
+    
+    // MARK: - Decodable
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -58,5 +60,36 @@ class CoreDataManager {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    class func clearDataBase<T: NSManagedObject>(_ entity: T.Type) -> Bool {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: entity.fetchRequest())
+        deleteRequest.resultType = .resultTypeStatusOnly
+        guard let result = try? CoreDataManager.sInstance.viewContext.execute(deleteRequest) as? NSBatchDeleteResult else {
+            return false
+        }
+        return result!.result as! Bool
+    }
+    
+    class func clardWholeDataBases() -> Bool {
+        guard let storeURL = Bundle(for: self)
+            .url(forResource: "TestDataModel", withExtension: "momd"),
+            let aModel = NSManagedObjectModel(contentsOf: storeURL) else {
+                #if DEBUG
+                print("error occourse in \(#file) lie \(#line)")
+                #endif
+                return false
+        }
+        var result = true
+        for entity in aModel.entities {
+            guard let clazz = NSClassFromString(entity.managedObjectClassName) else {
+                #if DEBUG
+                print("error occourse in \(#file) lie \(#line)")
+                #endif
+                return false
+            }
+            result = result && CoreDataManager.clearDataBase(clazz as! NSManagedObject.Type)
+        }
+        return result
     }
 }

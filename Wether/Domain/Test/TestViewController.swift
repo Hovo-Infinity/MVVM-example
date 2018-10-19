@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import SDWebImage
+import CoreData
 
 let cellReuseIdentifier = "lessonsCell"
 
@@ -111,11 +112,12 @@ class TestViewController: UIViewController {
             weakSelf.selectedImage = cell.thumbnailImageView.image!
         }.disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(Video.self).bind(onNext: {[weak self] video in
-            guard let weakSelf = self else { return }
+        tableView.rx.modelSelected(NSManagedObject.self).bind(onNext: {[weak self] video in
+            guard let weakSelf = self,
+            let video = video as? Video else { return }
             let previewViewModel = weakSelf.viewModel.previewViewModelFor(video)
             let vc = VidoPreviewViewController.viewControllerFor(previewViewModel)
-            self?.navigationController?.pushViewController(vc, animated: true)
+            weakSelf.navigationController?.pushViewController(vc, animated: true)
         })
         .disposed(by: disposeBag)
         

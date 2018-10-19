@@ -10,6 +10,8 @@ import UIKit
 import SDWebImage
 import RxSwift
 import RxCocoa
+import XCDYouTubeKit
+import MediaPlayer
 
 class VidoPreviewViewController: UIViewController {
     
@@ -41,6 +43,29 @@ class VidoPreviewViewController: UIViewController {
             weakSelf.creatorLabel.text = video.creator.name
         })
         .disposed(by: disposeBag)
+    }
+    
+    @IBAction private func playVideo(_ sender: UIButton) {
+        guard let videoId = viewModel.model.value.contentURL.split(separator: "=").last else {
+            return
+        }
+        let videoPlayerViewController = XCDYouTubeVideoPlayerViewController(videoIdentifier: String(videoId))
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(moviePlayerPlaybackDidFinish(_ :)),
+                                               name: NSNotification.Name.MPMoviePlayerPlaybackDidFinish,
+                                               object: videoPlayerViewController.moviePlayer)
+        self.present(videoPlayerViewController, animated: true)
+    }
+    
+    
+    @objc private func moviePlayerPlaybackDidFinish(_ notification: Notification) {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.MPMoviePlayerPlaybackDidFinish,
+                                                  object: notification.object)
+        let reason = notification.userInfo?[MPMoviePlayerPlaybackDidFinishReasonUserInfoKey]
+//        if reason == MPMovieFinishReasonPlaybackError {
+//            //handle error
+//        }
     }
 }
 

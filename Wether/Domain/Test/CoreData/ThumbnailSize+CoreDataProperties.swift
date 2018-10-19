@@ -16,7 +16,7 @@ extension ThumbnailSize {
         return NSFetchRequest<ThumbnailSize>(entityName: "ThumbnailSize")
     }
 
-    @NSManaged public var width: NSNumber
-    @NSManaged public var height: NSNumber
+    @NSManaged public var width: Int32
+    @NSManaged public var height: Int32
 
 }

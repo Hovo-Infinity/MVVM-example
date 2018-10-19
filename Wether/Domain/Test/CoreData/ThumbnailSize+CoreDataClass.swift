@@ -22,9 +22,7 @@ public class ThumbnailSize: NSManagedObject, Decodable {
         }
         self.init(entity: entity, insertInto: context)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let w = try container.decode(Int.self, forKey: .width)
-        width = NSNumber(integerLiteral: w)
-        let h = try container.decode(Int.self, forKey: .height)
-        height = NSNumber(integerLiteral: h)
+        width = try container.decode(Int32.self, forKey: .width)
+        height = try container.decode(Int32.self, forKey: .height)
     }
 }

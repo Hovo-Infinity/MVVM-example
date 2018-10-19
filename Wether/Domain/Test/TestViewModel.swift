@@ -15,13 +15,13 @@ struct TestViewModel: BaseViewModeling {
     internal var disposeBag: DisposeBag
     private var repo = TestRepo()
     private var hasNextPage = BehaviorRelay(value: false)
-    private var isLoadingVar = BehaviorRelay(value: true)
+    private var loading = BehaviorRelay(value: true)
     var error = PublishSubject<Error>()
     var model: BehaviorRelay<[Video]>!
     
     
     var isLoading: Observable<Bool> {
-        return isLoadingVar.asObservable()
+        return loading.asObservable()
     }
     
     init(disposeBag: DisposeBag) {
@@ -34,11 +34,11 @@ struct TestViewModel: BaseViewModeling {
 extension TestViewModel {
     func bindObservableToRefresh(_ observable: Observable<Void>) {
         observable.do(onNext: {
-            self.isLoadingVar.accept(true)
+            self.loading.accept(true)
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
         })
             .do(onNext: { _ in
-                self.isLoadingVar.accept(false)
+                self.loading.accept(false)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
             .bind(onNext: {
@@ -56,7 +56,7 @@ extension TestViewModel {
             }, onError: { error in
                 self.error.onNext(error)
             }, onCompleted: {
-                self.isLoadingVar.accept(false)
+                self.loading.accept(false)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
             .disposed(by: disposeBag)
@@ -69,7 +69,7 @@ extension TestViewModel {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 })
                 .bind(onNext: { videos in
-                    self.hasNextPage.accept(page < 2)
+                    self.hasNextPage.accept(!videos.isEmpty)
                     self.model.accept(self.model.value + videos)
                 })
                 .disposed(by: disposeBag)

@@ -22,20 +22,12 @@ extension Video {
     @NSManaged public var hostPageURL: String
     @NSManaged public var encodingFormat: String
     @NSManaged public var hostPageDisplayURL: String
-    @NSManaged public var width: NSNumber
-    @NSManaged public var height: NSNumber
+    @NSManaged public var width: Int32
+    @NSManaged public var height: Int32
     @NSManaged public var duration: String
-    @NSManaged public var viewCount: NSNumber
+    @NSManaged public var viewCount: Int32
     @NSManaged public var videoID: String
-    @NSManaged internal var allowMobileEmbed: NSNumber
-    public var isAllowMobileEmbed: Bool {
-        get {
-            return allowMobileEmbed.boolValue
-        }
-        set {
-            allowMobileEmbed = NSNumber(booleanLiteral: newValue)
-        }
-    }
+    @NSManaged internal var isAllowMobileEmbed: Bool
     @NSManaged public var isSuperfresh: Bool
     @NSManaged public var name: String
     @NSManaged public var thumbnailURL: String

@@ -23,7 +23,7 @@ class CustomPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 2 * duration
+        return duration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -46,37 +46,15 @@ class CustomPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
         transitionImageView.frame = isPresenting ? originFrame : artwork.frame
         container.addSubview(transitionImageView)
         
-        let animations = {
+        let animator = UIViewPropertyAnimator(duration: 2 * duration,
+                                              curve: .linear)
+        animator.addAnimations {
             transitionImageView.frame = self.isPresenting ? artwork.frame : self.originFrame
             nextVisibleView.frame = self.isPresenting ?
                 fromView.frame : CGRect(x: toView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
             nextVisibleView.alpha = self.isPresenting ? 1 : 0
-//            prevVisibleView.transform = self.isPresenting ? CGAffineTransform(scaleX: 0.85, y: 1.1) : .identity
         }
         
-        let animator = UIViewPropertyAnimator(duration: 2 * duration,
-                                              curve: .linear)
-        if isPresenting {
-            animator.addAnimations {
-                fromView.alpha = 0.0
-            }
-            animator.addAnimations({
-                transitionImageView.frame = self.isPresenting ? artwork.frame : self.originFrame
-                nextVisibleView.frame = self.isPresenting ?
-                    fromView.frame : CGRect(x: toView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
-                nextVisibleView.alpha = self.isPresenting ? 1 : 0
-            }, delayFactor: 0.5)
-        } else {
-            toView.alpha = 0.0
-            animator.addAnimations {
-                transitionImageView.frame = self.isPresenting ? artwork.frame : self.originFrame
-                nextVisibleView.frame = self.isPresenting ?
-                    fromView.frame : CGRect(x: toView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
-            }
-            animator.addAnimations({
-                toView.alpha = 1.0
-            }, delayFactor: 0.5)
-        }
         animator.addCompletion { _ in
             transitionImageView.removeFromSuperview()
             artwork.alpha = 1

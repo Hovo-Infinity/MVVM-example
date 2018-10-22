@@ -94,7 +94,7 @@ class TestRepo: NSObject {
     
     func fetchData(forPage page: Int) -> Observable<[Video]> {
         let context = CoreDataManager.sInstance.viewContext
-        let videos: [Video]? = nil//try? context.fetch(fetchRequest)
+        let videos = try? context.fetch(fetchRequest)
         if videos.valueOr([]).isEmpty {
             return apiProvider.rx
                 .request(TestTargetType.basic(page))

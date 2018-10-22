@@ -131,6 +131,8 @@ extension TestViewController: UINavigationControllerDelegate {
         if isPresenting {
             self.customInteractor = CustomInteractor(attachTo: toVC)
         }
+        
+        return HarsniqiXzarionPerexod()
         return CustomPushTransition(duration: 0.65, isPresenting: isPresenting, originFrame: selectedFrame, image: selectedImage)
     }
     

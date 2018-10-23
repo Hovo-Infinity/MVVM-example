@@ -93,9 +93,7 @@ class TestRepo: NSObject {
     }()
     
     func fetchData(forPage page: Int) -> Observable<[Video]> {
-        let context = CoreDataManager.sInstance.viewContext
-        let videos = try? context.fetch(fetchRequest)
-        if videos.valueOr([]).isEmpty {
+        if reachibilityService?._reachability.currentReachabilityStatus != Reachability.NetworkStatus.notReachable {
             return apiProvider.rx
                 .request(TestTargetType.basic(page))
                 .asObservable()
@@ -108,15 +106,14 @@ class TestRepo: NSObject {
                         print(error)
                         return []
                     }
-                    
                 }
                 .asObservable()
         } else {
-            return Observable.just(videos!)
+            let context = CoreDataManager.sInstance.viewContext
+            let videos = try? context.fetch(fetchRequest)
+            return Observable.just(videos.valueOr([]))
         }
-        
     }
-    
 }
 
 extension TestRepo: NSFetchedResultsControllerDelegate {

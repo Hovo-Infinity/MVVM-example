@@ -13,7 +13,6 @@ import RxDataSources
 import SDWebImage
 import CoreData
 
-let cellReuseIdentifier = "lessonsCell"
 
 class TestViewController: UIViewController {
     private let disposeBag: DisposeBag
@@ -93,16 +92,6 @@ class TestViewController: UIViewController {
                 weakSelf.currentPage += 1
             }
         }.disposed(by: disposeBag)
-        
-        tableView.rx.didScroll.subscribe(onNext: { esim in
-            let  height = self.tableView.frame.size.height
-            let contentYoffset = self.tableView.contentOffset.y
-            let distanceFromBottom = self.tableView.contentSize.height - contentYoffset
-            if distanceFromBottom < height {
-                print("scrolled till end")
-            }
-        })
-        .disposed(by: disposeBag)
         
         tableView.rx.itemSelected.bind {[weak self] indexPath in
             guard let weakSelf = self else { return }

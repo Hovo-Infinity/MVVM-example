@@ -64,7 +64,6 @@
 		A4FF2C9E2174D6E200759F00 /* ThumbnailSize+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C9D2174D6E200759F00 /* ThumbnailSize+CoreDataClass.swift */; };
 		A4FF2CA02174D70300759F00 /* Creator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2C9F2174D70200759F00 /* Creator+CoreDataProperties.swift */; };
 		A4FF2CA22174D70A00759F00 /* Creator+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF2CA12174D70A00759F00 /* Creator+CoreDataClass.swift */; };
-		A4FFBAA4217DBF1B00708BC2 /* HarsniqiXzarionPerexod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFBAA3217DBF1B00708BC2 /* HarsniqiXzarionPerexod.swift */; };
 		A4FFBAA6217DEFB800708BC2 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FFBAA5217DEFB800708BC2 /* TestLoginViewController.swift */; };
 		AA34A0BB9EE425AD2B5D6F18 /* Pods_Wether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2657E9FEE897D5591A5D829C /* Pods_Wether.framework */; };
 /* End PBXBuildFile section */
@@ -569,7 +568,6 @@
 				A41D3DA921638E1100CD242C /* Optional+Unwraping.swift in Sources */,
 				A4FF2C9A2174D6C500759F00 /* Video+CoreDataClass.swift in Sources */,
 				A4FF2C9C2174D6DB00759F00 /* ThumbnailSize+CoreDataProperties.swift in Sources */,
-				A4FFBAA4217DBF1B00708BC2 /* HarsniqiXzarionPerexod.swift in Sources */,
 				A4FF2C962174B64500759F00 /* ReachabilityService.swift in Sources */,
 				A46CEFFA216DDBB000FF20AF /* TestTableViewCell.swift in Sources */,
 				A4C20104216351A000BCAA6C /* DailyWeatherProtocol.swift in Sources */,

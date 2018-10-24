@@ -19,11 +19,24 @@ class TestLoginViewController: UIViewController {
     @IBOutlet private weak var invalidEmailLabel: UILabel!
     @IBOutlet private weak var invalidPasswordLable: UILabel!
     @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    private var keyboardVisible = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViews()
         // Do any additional setup after loading the view.
+        NotificationCenter.default
+        .addObserver(self,
+                     selector: #selector(keyboardDidOpen(_:)),
+                     name: UIApplication.keyboardDidShowNotification,
+                     object: nil)
+        
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(keyboardWillHide(_:)),
+                         name: UIApplication.keyboardWillHideNotification,
+                         object: nil)
     }
     
     private func bindViews() {
@@ -64,6 +77,26 @@ class TestLoginViewController: UIViewController {
         let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
         let navigationController = UINavigationController(rootViewController: nextVC)
         UIApplication.shared.keyWindow?.rootViewController = navigationController
+    }
+    
+    @objc
+    private func keyboardDidOpen(_ notification: Notification) {
+        if !keyboardVisible {
+            guard let keyboardFrameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+            let keyboardFrame = keyboardFrameValue.cgRectValue
+            scrollView.contentSize.height += (keyboardFrame.height - 60.0)
+            keyboardVisible = true
+        }
+    }
+    
+    @objc
+    private func keyboardWillHide(_ notification: Notification) {
+        if keyboardVisible {
+            guard let keyboardFrameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+            let keyboardFrame = keyboardFrameValue.cgRectValue
+            scrollView.contentSize.height -= (keyboardFrame.height - 60.0)
+            keyboardVisible = false
+        }
     }
 
 }

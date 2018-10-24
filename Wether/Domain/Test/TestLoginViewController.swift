@@ -13,6 +13,7 @@ import RxCocoa
 class TestLoginViewController: UIViewController {
     
     let disposeBag = DisposeBag()
+    private var viewModel: TestLoginViewModel?
 
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -24,13 +25,14 @@ class TestLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = TestLoginViewModel(email: emailTextField.rx.text, password: passwordTextField.rx.text, disposeBag: disposeBag)
         bindViews()
         // Do any additional setup after loading the view.
         NotificationCenter.default
-        .addObserver(self,
-                     selector: #selector(keyboardDidOpen(_:)),
-                     name: UIApplication.keyboardDidShowNotification,
-                     object: nil)
+            .addObserver(self,
+                         selector: #selector(keyboardDidOpen(_:)),
+                         name: UIApplication.keyboardDidShowNotification,
+                         object: nil)
         
         NotificationCenter.default
             .addObserver(self,
@@ -40,37 +42,10 @@ class TestLoginViewController: UIViewController {
     }
     
     private func bindViews() {
-        let validEmail = emailTextField.rx
-            .text.orEmpty
-            .map { text -> Bool in
-                let regExp = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                    "\\@" +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                    "(" +
-                    "\\." +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                ")+"
-                let predicate = NSPredicate(format: "SELF MATCHES %@", regExp)
-                return predicate.evaluate(with: text)
-            }
-            .share(replay: 1)// without this map would be executed once for each binding, rx is stateless by default
-        
-        let validPassword = passwordTextField.rx
-            .text.orEmpty
-            .map { text in
-                text.count > 8
-            }
-            .share(replay: 1)
-        
-        let validFields = Observable.combineLatest(validEmail, validPassword) {
-            $0 && $1
-        }.share(replay: 1)
-        
-        
-        validEmail.bind(to: invalidEmailLabel.rx.isHidden).disposed(by: disposeBag)
-        validPassword.bind(to: invalidPasswordLable.rx.isHidden).disposed(by: disposeBag)
-        validEmail.bind(to: passwordTextField.rx.isEnabled).disposed(by: disposeBag)
-        validFields.bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel?.validEmail.bind(to: invalidEmailLabel.rx.isHidden).disposed(by: disposeBag)
+        viewModel?.validPassword.bind(to: invalidPasswordLable.rx.isHidden).disposed(by: disposeBag)
+        viewModel?.validEmail.bind(to: passwordTextField.rx.isEnabled).disposed(by: disposeBag)
+        viewModel?.validFields.bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
     }
     
     @IBAction private func loginButtonTapped() {

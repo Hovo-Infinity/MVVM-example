@@ -49,6 +49,7 @@ class CoreDataManager {
     
     @objc
     func saveContext() {
+        print("saving context...")
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -92,4 +93,20 @@ class CoreDataManager {
         }
         return result
     }
+    
+    class func objectForEntityType<T: NSManagedObject>(_ entity: T.Type, primaryKey: String, value: AnyHashable) -> T? {
+        let fetchRequest = entity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "\(primaryKey)=%@", value as CVarArg)
+        let context = sInstance.viewContext
+        guard let object = try? context.execute(fetchRequest) as? NSAsynchronousFetchResult<T> else {
+            let entityName = NSStringFromClass(entity)
+            let entityDescription = NSEntityDescription.entity(forEntityName: entityName, in: context)!
+            return T(entity: entityDescription, insertInto: context)
+        }
+        return object?.finalResult?.first
+    }
+}
+
+extension NSManagedObject {
+    
 }

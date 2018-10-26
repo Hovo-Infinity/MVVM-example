@@ -18,7 +18,7 @@ struct TestViewModel: BaseViewModeling {
     private var loading = BehaviorRelay(value: true)
     var error = PublishSubject<Error>()
     var model: BehaviorRelay<[Video]>!
-    
+    private var currentPage = BehaviorRelay(value: 1)
     
     var isLoading: Observable<Bool> {
         return loading.asObservable()
@@ -51,8 +51,9 @@ extension TestViewModel {
     private func fetchData() {
         repo.fetchData(forPage: 1)
             .subscribe(onNext: { videos in
-                self.hasNextPage.accept(true)
+                self.hasNextPage.accept(!videos.isEmpty)
                 self.model.accept(videos)
+                self.currentPage.accept(self.currentPage.value + 1)
             }, onError: { error in
                 self.error.onNext(error)
             }, onCompleted: {
@@ -62,15 +63,16 @@ extension TestViewModel {
             .disposed(by: disposeBag)
     }
     
-    public func fetchDatas(page: Int) {
+    public func fetchNext() {
         if  hasNextPage.value {
-            repo.fetchData(forPage: page)
+            repo.fetchData(forPage: currentPage.value)
                 .do(onNext: {_ in
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 })
                 .bind(onNext: { videos in
                     self.hasNextPage.accept(!videos.isEmpty)
                     self.model.accept(self.model.value + videos)
+                    self.currentPage.accept(self.currentPage.value + 1)
                 })
                 .disposed(by: disposeBag)
         }

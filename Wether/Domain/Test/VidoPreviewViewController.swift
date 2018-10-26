@@ -33,6 +33,7 @@ class VidoPreviewViewController: UIViewController {
         super.viewDidLoad()
         bindViews()
         // Do any additional setup after loading the view.
+        viewModel.increeseViewCount()
     }
 
     private func bindViews() {

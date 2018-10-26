@@ -56,39 +56,13 @@ class TestRepo: NSObject {
     let apiProvider = MoyaProvider<TestTargetType>()
     let reachibilityService = try? DefaultReachabilityService()
     let disposeBag = DisposeBag()
-    var _fetchedResultsController: NSFetchedResultsController<Video>? = nil
-    var fetchedResultsController: NSFetchedResultsController<Video> {
-        if _fetchedResultsController != nil {
-            return _fetchedResultsController!
-        }
-        
-        let fetchRequest: NSFetchRequest<Video> = Video.fetchRequest()
-        fetchRequest.sortDescriptors = []
-        
-        let aFetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                                managedObjectContext: CoreDataManager.sInstance.viewContext,
-                                                                sectionNameKeyPath: nil,
-                                                                cacheName: nil)
-        
-        aFetchResultController.delegate = self
-        _fetchedResultsController = aFetchResultController
-        do {
-            // Perform the initial fetch to Core Data.
-            // After this step, the fetched results controller
-            // will only retrieve more records if necessary.
-            try _fetchedResultsController!.performFetch()
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-        
-        return _fetchedResultsController!
-    }
     private lazy var fetchRequest: NSFetchRequest<Video> = {
         let fetchRequest = NSFetchRequest<Video>(entityName: "Video")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "videoID", ascending: true)]
         let context = CoreDataManager.sInstance.viewContext
         fetchRequest.entity = NSEntityDescription.entity(forEntityName: "Video", in: context)
+        fetchRequest.fetchLimit = 10
+        fetchRequest.fetchBatchSize = 5
         return fetchRequest
     }()
     
@@ -110,6 +84,7 @@ class TestRepo: NSObject {
                 .asObservable()
         } else {
             let context = CoreDataManager.sInstance.viewContext
+            fetchRequest.fetchOffset = (page - 1) * fetchRequest.fetchLimit
             let videos = try? context.fetch(fetchRequest)
             return Observable.just(videos.valueOr([]))
         }

@@ -23,4 +23,10 @@ struct VideoPreviewViewModel: BaseViewModeling {
         self.init(disposeBag: disposeBag)
         self.model = BehaviorRelay(value: model)
     }
+    
+    func increeseViewCount() {
+        let video = model.value
+        video.viewCount += 1
+        model.accept(video)
+    }
 }

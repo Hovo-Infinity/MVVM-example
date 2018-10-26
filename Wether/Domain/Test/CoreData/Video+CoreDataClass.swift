@@ -34,19 +34,25 @@ public class Video: NSManagedObject, Decodable {
         guard let entity = NSEntityDescription.entity(forEntityName: "Video", in: context) else {
             fatalError("me errorm exav eli esim")
         }
-        self.init(entity: entity, insertInto: context)
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        let videoId = try container.decode(String.self, forKey: .videoID)
+        if let _ = CoreDataManager.objectForEntityType(Video.self, primaryKey: "videoID", value: videoId) {
+            self.init(entity: entity, insertInto: nil)
+        } else {
+            self.init(entity: entity, insertInto: context)
+            let publishers = try container.decode([Creator].self, forKey: CodingKeys.publisher)
+            publisher = NSOrderedSet(array: publishers)
+            thumbnailSize = try container.decode(ThumbnailSize.self, forKey: .thumbnailSize)
+            creator = try container.decode(Creator.self, forKey: .creator)
+        }
         desc = try container.decode(String.self, forKey: .desc)
         datePublished = try container.decode(String.self, forKey: .datePublished)
-        let publishers = try container.decode([Creator].self, forKey: CodingKeys.publisher)
-        publisher = NSOrderedSet(array: publishers)
-        creator = try container.decode(Creator.self, forKey: .creator)
         contentURL = try container.decode(String.self, forKey: .contentURL)
         hostPageURL = try container.decode(String.self, forKey: .hostPageURL)
         encodingFormat = try container.decode(String.self, forKey: .encodingFormat)
         hostPageDisplayURL = try container.decode(String.self, forKey: .hostPageDisplayURL)
         duration = try container.decode(String.self, forKey: .duration)
-        videoID = try container.decode(String.self, forKey: .videoID)
+        videoID = videoId
         isSuperfresh = try container.decode(Bool.self, forKey: .isSuperfresh)
         isAllowMobileEmbed = try container.decode(Bool.self, forKey: .isAllowMobileEmbed)
         name = try container.decode(String.self, forKey: .name)
@@ -55,6 +61,5 @@ public class Video: NSManagedObject, Decodable {
         viewCount = try container.decode(Int32.self, forKey: .viewCount)
         width = try container.decode(Int32.self, forKey: .width)
         height = try container.decode(Int32.self, forKey: .height)
-        thumbnailSize = try container.decode(ThumbnailSize.self, forKey: .thumbnailSize)
     }
 }

@@ -17,7 +17,6 @@ import CoreData
 class TestViewController: UIViewController {
     private let disposeBag: DisposeBag
     private let viewModel: TestViewModel
-    private var currentPage = 2
     private var selectedFrame = CGRect.zero
     private var selectedImage: UIImage!
     private var customInteractor: CustomInteractor?
@@ -65,8 +64,8 @@ class TestViewController: UIViewController {
         
         viewModel.model
             .subscribeOn(MainScheduler.instance)
-            .map({ videos -> [String: [Video]] in
-                Dictionary<String, [Video]>(grouping: videos, by: { $0.creator.name })
+            .map({ videos -> [Int32: [Video]] in
+                Dictionary<Int32, [Video]>(grouping: videos, by: { $0.viewCount })
             })
             .map ({ groupedVideos -> [TestSectionModel] in
                 /*
@@ -77,7 +76,7 @@ class TestViewController: UIViewController {
                 })
                 */
                 return groupedVideos.map({
-                    TestSectionModel(header: $0.key, items: $0.value )
+                    TestSectionModel(header: "\($0.key.description) views", items: $0.value )
                 })
             })
             .bind(to: tableView.rx.items(dataSource: rxDataSource))
@@ -88,8 +87,7 @@ class TestViewController: UIViewController {
             let lastSection = weakSelf.tableView.numberOfSections - 1
             let lastRow = weakSelf.tableView.numberOfRows(inSection: lastSection) - 1
             if indexPath == IndexPath(row: lastRow, section: lastSection) {
-                weakSelf.viewModel.fetchDatas(page: weakSelf.currentPage)
-                weakSelf.currentPage += 1
+                weakSelf.viewModel.fetchNext()
             }
         }.disposed(by: disposeBag)
         
@@ -103,7 +101,7 @@ class TestViewController: UIViewController {
         
         tableView.rx.modelSelected(NSManagedObject.self).bind(onNext: {[weak self] video in
             guard let weakSelf = self,
-            let video = video as? Video else { return }
+            var video = video as? Video else { return }
             let previewViewModel = weakSelf.viewModel.previewViewModelFor(video)
             let vc = VidoPreviewViewController.viewControllerFor(previewViewModel)
             weakSelf.navigationController?.pushViewController(vc, animated: true)
